@@ -8,5 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+    <StackPanel Background="HotPink">
+        <Button Content="Get Weather" Click="Button_Click" />
+        <TextBlock x:Name="ResultTextBlock" />
+        <Image x:Name="ResultImage" Width="200" Height="200"/>
+    </StackPanel>
 </Page>
