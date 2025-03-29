@@ -8,9 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Background="HotPink">
-        <Button Content="Get Weather" Click="Button_Click" />
-        <TextBlock x:Name="ResultTextBlock" />
+    <StackPanel Background="DodgerBlue" >
+        <Button Content="Get Weather" Click="Button_Click" Margin="10,10,10,10" FontSize="24"/>
+        <TextBlock x:Name="ResultTextBlock" FontSize="24" Margin="10,10,10,10" />
+        <TextBlock x:Name="weatherCelsius" FontSize="24" Margin="10,10,10,10" />
+        <TextBlock x:Name="Coordinates" FontSize="24" Margin="10,10,10,10"/>
         <Image x:Name="ResultImage" Width="200" Height="200"/>
     </StackPanel>
 </Page>

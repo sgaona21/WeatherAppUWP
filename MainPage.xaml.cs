@@ -35,11 +35,18 @@ namespace WeatherAppUWP
             Root myWeather =
                 await OpenWeatherMapProxy.GetWeather(
                     position.Coordinate.Latitude,
-                    position.Coordinate.Longitude);
+                    position.Coordinate.Longitude, "imperial");
+
+            Root myWeatherCelsius =
+                await OpenWeatherMapProxy.GetWeather(
+                    position.Coordinate.Latitude,
+                    position.Coordinate.Longitude, "metric");
 
             string icon = String.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.weather[0].icon);
             ResultImage.Source = new BitmapImage(new Uri(icon, UriKind.Absolute));
-            ResultTextBlock.Text = myWeather.name + " - " + ((int)myWeather.main.temp).ToString() + " - " + myWeather.weather[0].description;
+            ResultTextBlock.Text = "Fahrenheit: " + myWeather.name + " - " + ((int)myWeather.main.temp).ToString() + " - " + myWeather.weather[0].description;
+            weatherCelsius.Text = "Celsius: " + myWeatherCelsius.name + " - " + ((int)myWeatherCelsius.main.temp).ToString() + " - " + myWeatherCelsius.weather[0].description;
+            Coordinates.Text = "Your Coordinates: " + myWeather.coord.lat + " Lattitude, " + myWeather.coord.lon + " Longitude";
         }
     }
 }

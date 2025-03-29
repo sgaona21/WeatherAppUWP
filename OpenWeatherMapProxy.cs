@@ -12,13 +12,13 @@ namespace WeatherAppUWP
 {
     public class OpenWeatherMapProxy
     {
-        public async static Task<Root> GetWeather(double lat, double lon)
+        public async static Task<Root> GetWeather(double lat, double lon, string unit)
         {
             var http = new HttpClient();
 
             //var response = await http.GetAsync("https://api.openweathermap.org/data/2.5/weather?lat=33.4152&lon=-111.8315&appid=84c37fba63d5da5cb11d0d9f564b9971&units=imperial");
 
-            var url = String.Format("https://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&appid=84c37fba63d5da5cb11d0d9f564b9971&units=imperial", lat, lon);
+            var url = String.Format("https://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&appid=84c37fba63d5da5cb11d0d9f564b9971&units={2}", lat, lon, unit);
             var response = await http.GetAsync(url);
 
             var result = await response.Content.ReadAsStringAsync();
