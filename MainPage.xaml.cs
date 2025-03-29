@@ -35,7 +35,8 @@ namespace WeatherAppUWP
             Root myWeather =
                 await OpenWeatherMapProxy.GetWeather(33.4152, -111.8315);
 
-            
+            string icon = String.Format("https://openweathermap.org/img/wn/10d@2x.png", myWeather.weather[0].icon);
+            ResultImage.Source = new BitmapImage(new Uri(icon, UriKind.Absolute));
             ResultTextBlock.Text = myWeather.name + " - " + ((int)myWeather.main.temp).ToString() + " - " + myWeather.weather[0].description;
         }
     }
